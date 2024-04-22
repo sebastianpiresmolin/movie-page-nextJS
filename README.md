@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Before creating a Pullrequest
+
+First, merge your branch with main and test
+
+git checkout main
+
+git pull
+
+git checkout your-branch-name
+
+git merge main
+
+now you will see any potential conflicts that will need to be resolved.
 
 ## Getting Started
 
