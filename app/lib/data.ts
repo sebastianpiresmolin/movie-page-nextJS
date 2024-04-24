@@ -9,7 +9,7 @@ const UserSchema = new Schema({
   name: String,
   name_last: String,
   password: String,
-  phone: String,
+  phone: Number,
   booking: String,
 });
 
