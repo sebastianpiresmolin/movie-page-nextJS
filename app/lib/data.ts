@@ -13,9 +13,9 @@ const UserSchema = new Schema({
   booking: String,
 });
 
-export async function fetchAllUsers() {
-  const User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
+export async function fetchAllUsers() {
   const data = await User.find().select('email -_id');
 
   return data;
