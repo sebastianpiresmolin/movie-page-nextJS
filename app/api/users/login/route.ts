@@ -29,13 +29,13 @@ export async function POST(request: NextRequest) {
     }
 
     //create token data
-    // A JavaScript object (tokenData) is created to store essential user
-    // information. In this case, it includes the user's unique identifier (id),
-    // username, and email.
 
     const tokenData = {
       id: user._id,
       email: user.email,
+      name: user.name,
+      last_name: user.last_name,
+      phone: user.phone,
     };
 
     // Create a token with expiration of 1 day
