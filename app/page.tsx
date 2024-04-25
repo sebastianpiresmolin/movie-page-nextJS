@@ -6,7 +6,6 @@ export default function Home() {
     <main className="h-screen w-screen bg-white">
       <NavBar />
       <h1 className="text-blue-500">Index</h1>
-      <AllUsers />
     </main>
   );
 }
