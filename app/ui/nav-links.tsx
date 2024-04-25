@@ -1,29 +1,45 @@
 'use client';
-import { useState } from 'react'; // import state
+import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
-
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
-const links = [
-  {
-    name: 'Movies',
-    href: '/movies',
-  },
-  {
-    name: 'About',
-    href: '/about',
-  },
-  {
-    name: 'Sign In',
-    href: '/singin',
-  },
-];
+import axios from 'axios';
 
 export default function NavLinks() {
+  const router = useRouter();
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
   const pathname = usePathname();
+
+  const logout = async (event: any) => {
+    event.preventDefault();
+    try {
+      await axios.get('/api/users/logout');
+      router.push('/login');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const links = [
+    {
+      name: 'Movies',
+      href: '/movies',
+    },
+    {
+      name: 'About',
+      href: '/about',
+    },
+    {
+      name: 'Sign In',
+      href: '/login',
+    },
+    {
+      name: 'Sign Out',
+      href: '#',
+      onClick: logout,
+    },
+  ];
+
   return (
     <>
       <div className="DESKTOP-MENU hidden md:flex">
@@ -39,7 +55,7 @@ export default function NavLinks() {
                 }
               )}
             >
-              <p>{link.name}</p>
+              <p onClick={link.onClick}>{link.name}</p>
             </Link>
           );
         })}
@@ -87,33 +103,36 @@ export default function NavLinks() {
                     }
                   )}
                 >
-                  <p>{link.name}</p>
+                  <p onClick={link.onClick}>{link.name}</p>
                 </Link>
               );
             })}
           </ul>
         </div>
       </div>
-        <form action="" className={`${isNavOpen ? 'hidden' : ''} relative mx-auto w-max`}>
-          <input
-            type="search"
-            className="peer cursor-pointer relative z-10 h-8 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4"
+      <form
+        action=""
+        className={`${isNavOpen ? 'hidden' : ''} relative mx-auto w-max`}
+      >
+        <input
+          type="search"
+          className="peer cursor-pointer relative z-10 h-8 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4"
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-white px-3.5 peer-focus:border-white peer-focus:stroke-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-white px-3.5 peer-focus:border-white peer-focus:stroke-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </form>
+        </svg>
+      </form>
     </>
   );
 }
