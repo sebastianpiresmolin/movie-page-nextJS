@@ -29,27 +29,23 @@ export async function POST(request: NextRequest) {
     }
 
     //create token data
-    // A JavaScript object (tokenData) is created to store essential user
-    // information. In this case, it includes the user's unique identifier (id),
-    // username, and email.
-
     const tokenData = {
       id: user._id,
       email: user.email,
     };
 
-    // Create a token with expiration of 1 day
+    
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
       expiresIn: '1d',
     });
 
-    // Create a JSON response indicating successful login
+    
     const response = NextResponse.json({
       message: 'Login successful',
       success: true,
     });
 
-    // Set the token as an HTTP-only cookie
+    
     response.cookies.set('token', token, {
       httpOnly: true,
     });
