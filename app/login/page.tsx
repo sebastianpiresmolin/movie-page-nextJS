@@ -29,8 +29,10 @@ export default function SignupPage() {
     <main className="bg-white min-w-screen min-h-screen">
       <NavBar />
       <div className="flex justify-center items-center min-h-screen">
-        <div className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px] ">
-          <h1>{loading ? 'Processing' : 'Sign in'}</h1>
+        <div className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px]
+        drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg ">
+          <img src='/images/home.png'></img>
+          <h1 className='text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] '>{loading ? 'Processing' : 'Welcome'}</h1>
           <input
             className="p-2 my-2 text-black"
             id="email"
