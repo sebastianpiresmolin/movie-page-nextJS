@@ -26,39 +26,42 @@ export default function SignupPage() {
   };
 
   return (
-    <main>
-        <NavBar />
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <h1>{loading ? 'Processing' : 'Sign in'}</h1>
-        <input
-          className="p-2 my-2 text-black"
-          id="email"
-          type="text"
-          value={user.email}
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-          placeholder="email"
-        />
+    <main className="bg-white min-w-screen min-h-screen">
+      <NavBar />
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px] ">
+          <h1>{loading ? 'Processing' : 'Sign in'}</h1>
+          <input
+            className="p-2 my-2 text-black"
+            id="email"
+            type="text"
+            value={user.email}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            placeholder="email"
+          />
 
-        <input
-          className="p-2 my-2 text-black"
-          id="password"
-          type="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-          placeholder="password"
-        />
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={onLogin}
-        >
-          Sign in
-        </button>
-        <Link
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          href="/signup"
-        >
-          Visit signup page
-        </Link>
+          <input
+            className="p-2 my-2 text-black"
+            id="password"
+            type="password"
+            value={user.password}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            placeholder="password"
+          />
+          <button
+            className="bg-red-900 hover:bg-red-800 text-white antialiased font-bold py-2 px-4 rounded m-1 w-[200px]"
+            onClick={onLogin}
+          >
+            Sign In
+          </button>
+          <Link
+            className="bg-transparent hover:bg-red-900 hover:text-white text-black font-bold py-2 px-4 rounded 
+            m-1 w-[200px] text-center border-2 border-red-900"
+            href="/signup"
+          >
+            Sign Up
+          </Link>
+        </div>
       </div>
     </main>
   );
