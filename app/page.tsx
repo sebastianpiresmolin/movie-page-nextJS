@@ -1,5 +1,4 @@
 import NavBar from "./ui/navbar";
-import AllUsers from "./ui/all-users";
 
 export default function Home() {
   return (
