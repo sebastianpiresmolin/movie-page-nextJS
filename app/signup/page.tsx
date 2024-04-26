@@ -33,7 +33,6 @@ export default function SignupPage() {
         drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gray-300 rounded-lg py-2"
         >
           <img src="./images/home.png" alt="" />
-          <label htmlFor="email">Email</label>
           <input
             className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="email"
@@ -43,7 +42,6 @@ export default function SignupPage() {
             placeholder="Email"
             required
           />
-          <label htmlFor="name">First Name</label>
           <input
             className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="name"
@@ -53,7 +51,6 @@ export default function SignupPage() {
             placeholder="First Name"
             required
           />
-          <label htmlFor="name_last">Last Name</label>
           <input
             className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="name_last"
@@ -63,8 +60,6 @@ export default function SignupPage() {
             placeholder="Last Name"
             required
           />
-
-          <label htmlFor="password">Password</label>
           <input
             className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="password"
@@ -74,7 +69,6 @@ export default function SignupPage() {
             placeholder="Password"
             required
           />
-          <label htmlFor="phone">Phone Number</label>
           <input
             className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="phone"
