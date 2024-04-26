@@ -72,7 +72,7 @@ export default function SignupPage() {
             className="bg-red-900 hover:bg-red-800 text-white antialiased font-bold py-2 px-4 rounded m-1 w-[200px]"
             onClick={onLogin}
           >
-            Sign In
+            Login
           </button>
           <Link
             className="bg-transparent hover:bg-red-900 hover:text-white text-black font-bold py-2 px-4 rounded 
