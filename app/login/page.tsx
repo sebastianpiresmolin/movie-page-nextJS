@@ -25,16 +25,32 @@ export default function SignupPage() {
     }
   };
 
+  useEffect(() => {
+    const listener = (event: KeyboardEvent) => {
+      if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+        onLogin();
+      }
+    };
+    document.addEventListener('keydown', listener);
+    return () => {
+      document.removeEventListener('keydown', listener);
+    };
+  }, [onLogin]);
+
   return (
     <main className="bg-white min-w-screen min-h-screen">
       <NavBar />
       <div className="flex justify-center items-center min-h-screen">
-        <div className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px]
-        drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg ">
-          <img src='/images/home.png'></img>
-          <h1 className='text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] '>{loading ? 'Processing' : 'Welcome'}</h1>
+        <div
+          className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px]
+        drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg "
+        >
+          <img src="/images/home.png"></img>
+          <h1 className="text-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] ">
+            {loading ? 'Processing' : 'Welcome'}
+          </h1>
           <input
-            className="p-2 my-2 text-black"
+            className="p-2 my-2 text-black focus:outline-red-700 rounded-md"
             id="email"
             type="text"
             value={user.email}
@@ -43,7 +59,7 @@ export default function SignupPage() {
           />
 
           <input
-            className="p-2 my-2 text-black"
+            className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="password"
             type="password"
             value={user.password}
