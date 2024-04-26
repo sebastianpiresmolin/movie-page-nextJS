@@ -32,7 +32,7 @@ export default function SignupPage() {
           className="flex flex-col items-center justify-center h-[700px] w-[375px] 
         drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gray-300 rounded-lg py-2"
         >
-          <img src="./images/home.png" alt="" />
+          <img className='mb-8' src="./images/home.png" alt="" />
           <input
             className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="email"
