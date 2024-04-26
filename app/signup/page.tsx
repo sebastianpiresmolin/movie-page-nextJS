@@ -28,7 +28,10 @@ export default function SignupPage() {
     <main className="bg-white min-w-screen min-h-screen">
       <NavBar />
       <div className="flex justify-center items-center min-h-screen">
-        <div className="flex flex-col items-center justify-center h-[700px] w-[375px] bg-gray-300 rounded-lg py-2">
+        <div
+          className="flex flex-col items-center justify-center h-[700px] w-[375px] 
+        drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gray-300 rounded-lg py-2"
+        >
           <img src="./images/home.png" alt="" />
           <label htmlFor="email">Email</label>
           <input
