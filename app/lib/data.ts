@@ -1,22 +1,14 @@
-import mongoose, { Schema } from 'mongoose';
-import { config } from 'dotenv';
+import { connect } from './DbConnect';
+import mongoose from 'mongoose';
+import { UserSchema } from './schemas';
 
-config();
-mongoose.connect(process.env.MONGODB_URI!);
+connect();
 
-const UserSchema = new Schema({
-  email: String,
-  name: String,
-  name_last: String,
-  password: String,
-  phone: Number,
-  booking: String,
-});
+export let User: any;
 
-const User = mongoose.model('User', UserSchema);
-
-export async function fetchAllUsers() {
-  const data = await User.find().select('email -_id');
-
-  return data;
+if (mongoose.models.User) {
+  User = mongoose.model('User');
+} else {
+  User = mongoose.model('User', UserSchema);
 }
+
