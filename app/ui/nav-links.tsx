@@ -52,16 +52,24 @@ export default function NavLinks() {
       name: 'About',
       href: '/about',
     },
-    isLoggedIn
-      ? {
-          name: 'Sign Out',
-          href: '#',
-          onClick: logout,
-        }
-      : {
-          name: 'Sign In',
-          href: '/login',
-        },
+    ...(isLoggedIn
+      ? [
+          {
+            name: 'Userpage',
+            href: '/userpage',
+          },
+          {
+            name: 'Sign Out',
+            href: '#',
+            onClick: logout,
+          },
+        ]
+      : [
+          {
+            name: 'Sign In',
+            href: '/login',
+          },
+        ]),
   ];
 
   return (
@@ -118,17 +126,17 @@ export default function NavLinks() {
             {links.map((link) => {
               return (
                 <Link
-                key={link.name}
-                href={link.href}
-                className={clsx(
-                  'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-transparent p-3 text-xl font-bold antialiased hover:text-gray-400 md:flex-none md:justify-start md:p-2 md:px-3',
-                  {
-                    'bg-transparent text-gray-400': pathname === link.href,
-                  }
-                )}
-              >
-                <p onClick={link.onClick}>{link.name}</p>
-              </Link>
+                  key={link.name}
+                  href={link.href}
+                  className={clsx(
+                    'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-transparent p-3 text-xl font-bold antialiased hover:text-gray-400 md:flex-none md:justify-start md:p-2 md:px-3',
+                    {
+                      'bg-transparent text-gray-400': pathname === link.href,
+                    }
+                  )}
+                >
+                  <p onClick={link.onClick}>{link.name}</p>
+                </Link>
               );
             })}
           </ul>
