@@ -56,6 +56,7 @@ export default function SignupPage() {
             value={user.email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             placeholder="email"
+            required
           />
 
           <input
@@ -65,6 +66,7 @@ export default function SignupPage() {
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
             placeholder="password"
+            required
           />
           <button
             className="bg-red-900 hover:bg-red-800 text-white antialiased font-bold py-2 px-4 rounded m-1 w-[200px]"
