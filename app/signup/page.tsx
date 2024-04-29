@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import NavBar from '../ui/navbar';
+import Footer from '../ui/footer'
 
 export default function SignupPage() {
   const router = useRouter();
@@ -95,6 +96,7 @@ export default function SignupPage() {
           </Link>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
