@@ -10,7 +10,9 @@ import { useAuth } from '../contexts/authContext';
 export default function FooterLinks() {
   const router = useRouter();
   const { isLoggedIn } = useAuth();
+  const { setLoggedIn } = useAuth();
   const pathname = usePathname();
+  
 
  
   // Function to log the user out by sending a GET request to api/users/logout
@@ -20,6 +22,7 @@ export default function FooterLinks() {
     event.preventDefault();
     try {
       await axios.get('/api/users/logout');
+      setLoggedIn(false);
       router.push('/login');
     } catch (error) {
       console.error(error);
