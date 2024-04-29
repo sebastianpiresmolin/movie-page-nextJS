@@ -4,9 +4,11 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import NavBar from '../ui/navbar';
+import { set } from 'mongoose';
 
 export default function SignupPage() {
   const router = useRouter();
+  const [error, setError] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [user, setUser] = React.useState({
     email: '',
@@ -15,10 +17,12 @@ export default function SignupPage() {
 
   const onLogin = async () => {
     try {
+      setError('');
       setLoading(true);
       const response = await axios.post('/api/users/login', user);
       router.push('/');
     } catch (error: any) {
+      setError('Invalid email or password. Please try again.');
       console.log('Login failed', error.message);
     } finally {
       setLoading(false);
@@ -68,6 +72,7 @@ export default function SignupPage() {
             placeholder="password"
             required
           />
+          <p className="text-red-700">{error}</p>
           <button
             className="bg-red-900 hover:bg-red-800 text-white antialiased font-bold py-2 px-4 rounded m-1 w-[200px]"
             onClick={onLogin}
