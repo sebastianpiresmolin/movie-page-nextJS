@@ -20,7 +20,9 @@ export default function RootLayout({
       <>
         <html lang="en">
           <body className={`${roboto.className} antialiased max-w-screen`}>
+            <NavBar />
             {children}
+            <Footer />
           </body>
         </html>
       </>

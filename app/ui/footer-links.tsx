@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
@@ -12,9 +11,7 @@ export default function FooterLinks() {
   const { isLoggedIn } = useAuth();
   const { setLoggedIn } = useAuth();
   const pathname = usePathname();
-  
 
- 
   // Function to log the user out by sending a GET request to api/users/logout
   // logout will clear the token from the user's cookies
   // and redirect the user to the login page

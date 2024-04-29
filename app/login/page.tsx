@@ -3,8 +3,6 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import NavBar from '../ui/navbar';
-import Footer from '../ui/footer';
 import { useAuth } from '../contexts/authContext';
 
 export default function LoginPage() {
@@ -46,7 +44,6 @@ export default function LoginPage() {
 
   return (
     <main className="bg-white max-w-full w-screen min-h-screen">
-      <NavBar />
       <div className="flex justify-center max-w-screen items-center min-h-screen">
         <div
           className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px]
@@ -91,7 +88,6 @@ export default function LoginPage() {
           </Link>
         </div>
       </div>
-      <Footer />
     </main>
   );
 }
