@@ -3,6 +3,7 @@ import { roboto } from '@/app/ui/fonts';
 import './globals.css';
 
 
+
 export const metadata: Metadata = {
   title: 'Tidaholm Cinema',
   description: 'Adventures for the whole family',
@@ -15,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} antialiased`}>{children}</body>
+      <body className={`${roboto.className} antialiased max-w-screen`}>{children}</body>
     </html>
   );
 }

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import NavBar from '../ui/navbar';
+import Footer from '../ui/footer';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -41,9 +42,9 @@ export default function SignupPage() {
   }, [onLogin]);
 
   return (
-    <main className="bg-white min-w-screen min-h-screen">
+    <main className="bg-white max-w-full w-screen min-h-screen">
       <NavBar />
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center max-w-screen items-center min-h-screen">
         <div
           className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px]
         drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg "
@@ -87,6 +88,7 @@ export default function SignupPage() {
           </Link>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
