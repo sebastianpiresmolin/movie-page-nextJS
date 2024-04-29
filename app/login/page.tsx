@@ -5,10 +5,12 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import NavBar from '../ui/navbar';
 import Footer from '../ui/footer';
+import { useAuth } from '../contexts/authContext';
 
-export default function SignupPage() {
+export default function LoginPage() {
   const router = useRouter();
   const [error, setError] = React.useState('');
+  const { isLoggedIn, setLoggedIn } = useAuth();
   const [loading, setLoading] = React.useState(false);
   const [user, setUser] = React.useState({
     email: '',
@@ -20,6 +22,7 @@ export default function SignupPage() {
       setError('');
       setLoading(true);
       const response = await axios.post('/api/users/login', user);
+      setLoggedIn(true);
       router.push('/');
     } catch (error: any) {
       setError('Invalid email or password. Please try again.');

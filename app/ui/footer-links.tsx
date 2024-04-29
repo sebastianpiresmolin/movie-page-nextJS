@@ -5,28 +5,14 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import axios from 'axios';
+import { useAuth } from '../contexts/authContext';
 
 export default function FooterLinks() {
   const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //state for if the user is logged in
+  const { isLoggedIn } = useAuth();
   const pathname = usePathname();
 
-  // Check if user is logged in by sending a request to api/users/check-auth
-  // check-auth basically checks if the user has a valid token in their cookies
-  // because check-auth is a protected route, it will return a 401 status code if the user is not authenticated
-  useEffect(() => {
-    const checkLoginStatus = async () => {
-      try {
-        const response = await axios.get('/api/users/check-auth');
-        setIsLoggedIn(response.data.isLoggedIn);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    checkLoginStatus();
-  }, []);
-
+ 
   // Function to log the user out by sending a GET request to api/users/logout
   // logout will clear the token from the user's cookies
   // and redirect the user to the login page

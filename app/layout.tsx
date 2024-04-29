@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { roboto } from '@/app/ui/fonts';
 import './globals.css';
-
-
+import { AuthProvider } from '@/app/contexts/authContext';
 
 export const metadata: Metadata = {
   title: 'Tidaholm Cinema',
@@ -15,8 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${roboto.className} antialiased max-w-screen`}>{children}</body>
-    </html>
+    <AuthProvider>
+      <>
+        <html lang="en">
+          <body className={`${roboto.className} antialiased max-w-screen`}>
+            {children}
+          </body>
+        </html>
+      </>
+    </AuthProvider>
   );
 }
