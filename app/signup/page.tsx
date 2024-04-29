@@ -1,12 +1,14 @@
 'use client';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import NavBar from '../ui/navbar';
 import Footer from '../ui/footer'
 
+
 export default function SignupPage() {
+  const [error, setError] = React.useState('');
   const router = useRouter();
   const [user, setUser] = React.useState({
     email: '',
@@ -17,7 +19,14 @@ export default function SignupPage() {
   });
 
   const onSignup = async () => {
+    // Check if all fields are filled
+    if (!user.email || !user.name || !user.name_last || !user.password || !user.phone) {
+      setError('Please fill all fields before submitting');
+      return;
+    }
+  
     try {
+      setError('');
       const response = await axios.post('/api/users/signup', user);
       window.alert('Signup successful, please sign in');
       router.push('/login');
@@ -80,6 +89,7 @@ export default function SignupPage() {
             placeholder="Phone Number"
             required
           />
+          <p className="text-red-900">{error}</p>
           <button
             className="bg-red-900 hover:bg-red-800 text-white antialiased font-bold py-2 px-4 rounded m-1 w-[200px]"
             onClick={onSignup}
