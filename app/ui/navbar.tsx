@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import NavLinks from '@/app/ui/nav-links';
+import Image from 'next/image';
 
 export default function NavBar() {
   return (
@@ -7,9 +8,9 @@ export default function NavBar() {
       <div>
         <Link
           href="/"
-          className="text-2xl text-center font-bold border-solid border-2 w-8"
+          className=""
         >
-          T
+          <Image src="/images/home.png" alt="logo" width={150} height={150} className='bg-white rounded-full' />
         </Link>
       </div>
       <div className="flex space-x-4 items-center">
