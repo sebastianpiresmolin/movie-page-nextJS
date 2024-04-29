@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { roboto } from '@/app/ui/fonts';
 import './globals.css';
 
+
 export const metadata: Metadata = {
   title: 'Tidaholm Cinema',
   description: 'Adventures for the whole family',
