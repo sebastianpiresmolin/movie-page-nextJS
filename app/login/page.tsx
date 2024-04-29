@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import NavBar from '../ui/navbar';
-import { set } from 'mongoose';
 
 export default function SignupPage() {
   const router = useRouter();
