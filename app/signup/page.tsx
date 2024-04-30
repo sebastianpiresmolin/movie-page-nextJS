@@ -32,7 +32,7 @@ export default function SignupPage() {
       setError('');
       const response = await axios.post('/api/users/signup', user);
       window.alert('Signup successful, please sign in');
-      router.push('/login');
+      router.push('/redirect-to-login');
     } catch (error: any) {
       console.log('Signup failed', error.message);
     }
