@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { set } from 'mongoose';
 
 export default function SignupPage() {
   const [error, setError] = React.useState('');
@@ -31,10 +32,9 @@ export default function SignupPage() {
     try {
       setError('');
       const response = await axios.post('/api/users/signup', user);
-      window.alert('Signup successful, please sign in');
-      router.push('/redirect-to-login');
+      router.push('/signup/redirect-to-login');
     } catch (error: any) {
-      console.log('Signup failed', error.message);
+      setError('Something went wrong. Please verify your information and try again.');
     }
   };
 
@@ -91,7 +91,7 @@ export default function SignupPage() {
             placeholder="Phone Number"
             required
           />
-          <p className="text-red-900">{error}</p>
+          <p className="text-red-900 text-center">{error}</p>
           <button
             className="bg-red-900 hover:bg-red-800 text-white antialiased font-bold py-2 px-4 rounded m-1 w-[200px]"
             onClick={onSignup}
