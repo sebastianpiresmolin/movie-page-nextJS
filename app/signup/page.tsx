@@ -39,7 +39,7 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="bg-white min-w-screen min-h-screen">
+    <main className="min-w-screen min-h-screen">
       <div className="flex justify-center items-center min-h-screen">
         <div
           className="flex flex-col items-center justify-center h-[700px] w-[375px] 

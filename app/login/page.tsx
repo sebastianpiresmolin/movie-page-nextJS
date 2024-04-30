@@ -43,7 +43,7 @@ export default function LoginPage() {
   }, [onLogin]);
 
   return (
-    <main className="bg-white max-w-full w-screen min-h-screen">
+    <main className="max-w-full w-screen min-h-screen">
       <div className="flex justify-center max-w-screen items-center min-h-screen">
         <div
           className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px]
