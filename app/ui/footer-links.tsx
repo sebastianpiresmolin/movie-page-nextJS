@@ -59,14 +59,14 @@ export default function FooterLinks() {
 
   return (
     <>
-      <div className="DESKTOP-MENU flex p-6 mr-2">
+      <div className="DESKTOP-MENU flex">
         {links.map((link) => {
           return (
             <Link
               key={link.name}
               href={link.href}
               className={clsx(
-                'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-transparent p-3 text-xl font-bold antialiased hover:text-gray-400 md:flex-none md:justify-start md:p-2 md:px-3',
+                'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-transparent p-3 text-lg font-bold antialiased hover:text-gray-400 md:text-xl md:flex-none md:justify-start md:p-2 md:px-3',
                 {
                   'bg-transparent text-gray-400': pathname === link.href,
                 }
