@@ -32,4 +32,11 @@ export const UserSchema = new Schema({
     verifyTokenExpiry: Date,
   });
 
-  
+  export const MovieSchema = new Schema({
+    title: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+  });
