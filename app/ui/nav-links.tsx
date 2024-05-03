@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import axios from 'axios';
-import { useAuth } from '../contexts/authContext'; 
-
+import { useAuth } from '../contexts/authContext';
 
 export default function NavLinks() {
   const router = useRouter();
@@ -15,7 +14,6 @@ export default function NavLinks() {
   const pathname = usePathname();
   const { setLoggedIn } = useAuth();
 
- 
   // Function to log the user out by sending a GET request to api/users/logout
   // logout will clear the token from the user's cookies
   // and redirect the user to the login page
@@ -145,11 +143,11 @@ export default function NavLinks() {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          stroke-width="2"
+          strokeWidth="2"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
