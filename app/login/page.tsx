@@ -3,11 +3,12 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import NavBar from '../ui/navbar';
+import { useAuth } from '../contexts/authContext';
 
-export default function SignupPage() {
+export default function LoginPage() {
   const router = useRouter();
   const [error, setError] = React.useState('');
+  const { isLoggedIn, setLoggedIn } = useAuth();
   const [loading, setLoading] = React.useState(false);
   const [user, setUser] = React.useState({
     email: '',
@@ -19,6 +20,7 @@ export default function SignupPage() {
       setError('');
       setLoading(true);
       const response = await axios.post('/api/users/login', user);
+      setLoggedIn(true);
       router.push('/');
     } catch (error: any) {
       setError('Invalid email or password. Please try again.');
@@ -41,9 +43,8 @@ export default function SignupPage() {
   }, [onLogin]);
 
   return (
-    <main className="bg-white min-w-screen min-h-screen">
-      <NavBar />
-      <div className="flex justify-center items-center min-h-screen">
+    <main className="bg-white max-w-full w-screen min-h-screen">
+      <div className="flex justify-center max-w-screen items-center min-h-screen">
         <div
           className="flex flex-col items-center justify-center py-2 bg-gray-300 w-[375px] h-[500px]
         drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] rounded-lg "

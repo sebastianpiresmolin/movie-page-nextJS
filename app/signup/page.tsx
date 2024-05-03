@@ -1,11 +1,11 @@
 'use client';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import NavBar from '../ui/navbar';
 
 export default function SignupPage() {
+  const [error, setError] = React.useState('');
   const router = useRouter();
   const [user, setUser] = React.useState({
     email: '',
@@ -16,7 +16,20 @@ export default function SignupPage() {
   });
 
   const onSignup = async () => {
+    // Check if all fields are filled
+    if (
+      !user.email ||
+      !user.name ||
+      !user.name_last ||
+      !user.password ||
+      !user.phone
+    ) {
+      setError('Please fill all fields before submitting');
+      return;
+    }
+
     try {
+      setError('');
       const response = await axios.post('/api/users/signup', user);
       window.alert('Signup successful, please sign in');
       router.push('/login');
@@ -27,13 +40,12 @@ export default function SignupPage() {
 
   return (
     <main className="bg-white min-w-screen min-h-screen">
-      <NavBar />
       <div className="flex justify-center items-center min-h-screen">
         <div
           className="flex flex-col items-center justify-center h-[700px] w-[375px] 
         drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] bg-gray-300 rounded-lg py-2"
         >
-          <img className='mb-8' src="./images/home.png" alt="" />
+          <img className="mb-8" src="./images/home.png" alt="" />
           <input
             className="p-2 my-2 text-black rounded-md focus:outline-red-700"
             id="email"
@@ -79,6 +91,7 @@ export default function SignupPage() {
             placeholder="Phone Number"
             required
           />
+          <p className="text-red-900">{error}</p>
           <button
             className="bg-red-900 hover:bg-red-800 text-white antialiased font-bold py-2 px-4 rounded m-1 w-[200px]"
             onClick={onSignup}
