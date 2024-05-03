@@ -18,8 +18,8 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <>
-        <html lang="en">
-          <body className={`${roboto.className} antialiased max-w-screen`}>
+        <html lang="en" className='max-w-screen'>
+          <body className={`${roboto.className} antialiased max-w-screen bg-background `}>
             <NavBar />
             {children}
             <Footer />

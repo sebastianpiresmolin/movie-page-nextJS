@@ -95,7 +95,7 @@ export default function NavLinks() {
         <div className={isNavOpen ? 'showMenuNav' : 'hideMenuNav'}>
           {' '}
           <div
-            className="CROSS-ICON absolute top-0 right-0 px-1 py-1"
+            className="CROSS-ICON absolute top-2 right-2 px-1 py-1"
             onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
           >
             <svg
@@ -111,14 +111,14 @@ export default function NavLinks() {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </div>
-          <ul className="MENU-LINK-MOBILE-OPEN flex flex-row items-center justify-between mr-6">
+          <ul className="MENU-LINK-MOBILE-OPEN flex-col md:flex-row items-center justify-between mr-14">
             {links.map((link) => {
               return (
                 <Link
                   key={link.name}
                   href={link.href}
                   className={clsx(
-                    'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-transparent p-3 text-xl font-bold antialiased hover:text-gray-400 md:flex-none md:justify-start md:p-2 md:px-3',
+                    'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-transparent p-3 text-lg font-bold antialiased hover:text-gray-400 md:text-xl md:flex-none md:justify-start md:p-2 md:px-3',
                     {
                       'bg-transparent text-gray-400': pathname === link.href,
                     }
