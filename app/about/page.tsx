@@ -34,7 +34,7 @@ export default function About() {
         </p>
         <h2 className="text-2xl font-bold mb-2">Community Engagement</h2>
         <p className="text-lg leading-relaxed mb-6">
-          At Tidaholms Cinema, we're more than just a place to watch movies – we're a hub for community 
+        At Tidaholms Cinema, we&lsquo;re more than just a place to watch movies &ndash; we&rsquo;re a hub for community  
           engagement and cultural enrichment. From special screenings and film festivals to collaborations 
           with local artists and organizations, we strive to foster a sense of belonging and connection 
           among our patrons.
