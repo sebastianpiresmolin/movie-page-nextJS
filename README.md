@@ -83,3 +83,26 @@ Example response:
 {
 "isLoggedIn": true
 }
+
+---
+
+GET /api/movies/movie-page?genre=Children
+
+Example response
+
+    {
+        _id: new ObjectId('6628dae6242938919cf11bfa'),
+        id: 10,
+        title: 'Aladdin',
+        genre: 'Children',
+        image: 'https://m.media-amazon.com/images/M/MV5BZTg5ZTVmM2EtZjdhZC00MzBjLWEwZTYtNWIwZDczYzZkMzA4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg',
+        date: '2024-04-29',
+        'ticket-price': 100,
+        reviews: '[\n' +
+        '{id: 1, rating 5, comment: "Bra film, mina barn älskar den"},\n' +
+        '{id: 2, rating 4, comment: "Ok film, lite för lång"},\n' +
+        '{id: 3, rating 1, comment: "Not so good, made my son scared of toys"}\n' +
+        ' ]',
+        premierDate: '2024-01-20',
+        rating: '3'
+    }
