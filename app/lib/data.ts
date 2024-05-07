@@ -7,6 +7,7 @@ connect();
 export let User: any;
 export let Movie: any;
 
+
 if (mongoose.models.User) {
   User = mongoose.model('User');
 } else {
