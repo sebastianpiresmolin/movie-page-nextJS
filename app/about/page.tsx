@@ -34,7 +34,7 @@ export default function About() {
         </p>
         <h2 className="text-2xl font-bold mb-2">Community Engagement</h2>
         <p className="text-lg leading-relaxed mb-6">
-          At Tidaholms Cinema, we're more than just a place to watch movies. We are a hub for community 
+          At Tidaholms Cinema, we're more than just a place to watch movies – we're a hub for community 
           engagement and cultural enrichment. From special screenings and film festivals to collaborations 
           with local artists and organizations, we strive to foster a sense of belonging and connection 
           among our patrons.
@@ -52,7 +52,7 @@ export default function About() {
           and make memories that will last a lifetime.
         </p>
         <p className="text-lg leading-relaxed">
-          Thank you for choosing Tidaholms Cinema. The cinema where every visit is an unforgettable experience.
+          Thank you for choosing Tidaholms Cinema – where every visit is an unforgettable experience.
         </p>
       </div>
     </section>
