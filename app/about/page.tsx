@@ -27,14 +27,14 @@ export default function About() {
         </p>
         <h2 className="text-2xl font-bold mb-2">An Immersive Experience</h2>
         <p className="text-lg leading-relaxed mb-6">
-          Step into our theater and experience the magic of cinema like never before. With state-of-the-art 
+          Step into our theater and experience the magic of cinema like never before. With state of the art 
           audiovisual technology and comfortable seating, we offer an immersive experience that will transport 
-          you to the heart of the action, whether you're watching the latest blockbuster, a timeless classic, 
+          you to the heart of the action, whether you are watching the latest blockbuster, a timeless classic, 
           or an indie gem.
         </p>
         <h2 className="text-2xl font-bold mb-2">Community Engagement</h2>
         <p className="text-lg leading-relaxed mb-6">
-        At Tidaholms Cinema, we&lsquo;re more than just a place to watch movies &ndash; we&rsquo;re a hub for community  
+        At Tidaholms Cinema, we are more than just a place to watch movies, we are a hub for community  
           engagement and cultural enrichment. From special screenings and film festivals to collaborations 
           with local artists and organizations, we strive to foster a sense of belonging and connection 
           among our patrons.
@@ -47,12 +47,12 @@ export default function About() {
         </p>
         <h2 className="text-2xl font-bold mb-2">Join Us</h2>
         <p className="text-lg leading-relaxed mb-6">
-          Whether you're a longtime cinephile or just looking for a fun night out, we invite you to join us
+          Whether you are a longtime cinephile or just looking for a fun night out, we invite you to join us
           at Tidaholms Cinema. Discover the magic of the silver screen, connect with fellow film lovers, 
           and make memories that will last a lifetime.
         </p>
         <p className="text-lg leading-relaxed">
-        Thank you for choosing Tidaholms Cinema &ndash; where every visit is an unforgettable experience.
+        Thank you for choosing Tidaholms Cinema! The cinema where every visit is an unforgettable experience.
         </p>
       </div>
     </section>
