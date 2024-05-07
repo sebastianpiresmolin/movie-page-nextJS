@@ -52,7 +52,7 @@ export default function About() {
           and make memories that will last a lifetime.
         </p>
         <p className="text-lg leading-relaxed">
-          Thank you for choosing Tidaholms Cinema – where every visit is an unforgettable experience.
+        Thank you for choosing Tidaholms Cinema &ndash; where every visit is an unforgettable experience.
         </p>
       </div>
     </section>
