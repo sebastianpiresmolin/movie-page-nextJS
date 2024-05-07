@@ -39,4 +39,13 @@ export const UserSchema = new Schema({
     image: {
       type: String,
     },
+    id: {
+      type: Number,
+    },
+    genre: {
+      type: String,
+    },
+    rating: {
+      type: String,
+    },
   });

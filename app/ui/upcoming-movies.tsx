@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getUpcomingMovies } from '../lib/data';
 
 interface Movie {
-    _id: string;
+    id: string;
     title: string;
     image: string;
 }
@@ -18,7 +18,7 @@ export async function UpcomingMovies() {
             <h1 className="text-3xl text-black font-bold mb-4 text-center">Upcoming movies</h1>
             <div className="flex overflow-x-auto space-x-4 sm:justify-center">
                 {movies.map((movie: Movie) => (
-                    <Link href={`/movies/${movie._id}`} key={movie._id}>
+                    <Link href={`/movies/${movie.id}`} key={movie.id}>
                         <div className="max-w-xs sm:max-w-md lg:max-w-lg min-w-[150px] bg-gray-50 shadow-md p-4 rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer hover:scale-95">
                             <h2 className="text-lg text-black font-semibold mb-2 text-center">{movie.title}</h2>
                             <img
