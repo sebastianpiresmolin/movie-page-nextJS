@@ -32,20 +32,20 @@ export const UserSchema = new Schema({
   verifyTokenExpiry: Date,
 });
 
-export const MovieSchema = new Schema({
-  title: {
-    type: String,
-  },
-  image: {
-    type: String,
-  },
-  id: {
-    type: Number,
-  },
-  genre: {
-    type: String,
-  },
-  rating: {
-    type: String,
-  },
-});
+  export const MovieSchema = new Schema({
+    title: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+    id: {
+      type: Number,
+    },
+    genre: {
+      type: String,
+    },
+    rating: {
+      type: String,
+    },
+  });
