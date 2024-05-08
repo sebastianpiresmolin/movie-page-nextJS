@@ -17,15 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <AuthProvider>
-      <>
-        <html lang="en" className='max-w-screen'>
-          <body className={`${roboto.className} antialiased max-w-screen bg-background `}>
-            <NavBar />
-            {children}
-            <Footer />
-          </body>
-        </html>
-      </>
+      <html lang="en" className="max-w-screen">
+        <body
+          className={`${roboto.className} antialiased max-w-screen bg-background flex flex-grow flex-col min-h-screen`}
+        >
+          <NavBar />
+          <div className="flex-grow">{children}</div>
+          <Footer />
+        </body>
+      </html>
     </AuthProvider>
   );
 }

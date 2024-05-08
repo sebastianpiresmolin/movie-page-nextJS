@@ -2,6 +2,7 @@ import { connect } from "./DbConnect";
 import mongoose from "mongoose";
 import { UserSchema, MovieSchema } from "./schemas";
 
+
 connect();
 
 export let User: any;
@@ -40,4 +41,7 @@ export async function getUpcomingMovies() {
   return upcomingMovies;
 }
 
-
+export async function getAllMovies() {
+  const movies = await Movie.find();
+  return movies;
+}
