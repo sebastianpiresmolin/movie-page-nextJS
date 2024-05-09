@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import axios from 'axios';
 import { useAuth } from '../contexts/authContext';
+import { title } from 'process';
 
 export default function NavLinks() {
   const router = useRouter();
@@ -13,6 +14,10 @@ export default function NavLinks() {
   const { isLoggedIn } = useAuth();
   const pathname = usePathname();
   const { setLoggedIn } = useAuth();
+  const [placeholder, setPlaceholder] = useState('Search for movies...');
+  const [searchValue, setSearchValue] = useState({
+    title: '',
+  }); //state for the search input value
 
   // Function to log the user out by sending a GET request to api/users/logout
   // logout will clear the token from the user's cookies
@@ -26,6 +31,12 @@ export default function NavLinks() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleSetSearchValue = (event: any) => {
+    event.preventDefault();
+    console.log(searchValue);
+    setSearchValue({ title: '' });
   };
 
   // Array of links to be displayed in the navigation
@@ -131,11 +142,15 @@ export default function NavLinks() {
       </div>
       <form
         action=""
+        onSubmit={handleSetSearchValue}
         className={`${isNavOpen ? 'hidden' : ''} relative mx-auto w-max`}
       >
         <input
           type="search"
+          value={searchValue.title}
+          onChange={(e) => setSearchValue({ title: e.target.value })}
           className="peer cursor-pointer relative z-10 h-8 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4"
+          placeholder={placeholder}
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -1,3 +1,6 @@
+// THIS IS OBSOLETE, DO NOT USE
+// SAVING THIS TO SHOW RICHARD
+
 import { getAllMovies } from '../lib/data';
 import Link from 'next/link';
 
