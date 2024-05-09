@@ -4,11 +4,11 @@ import { UpcomingMovies } from "./ui/upcoming-movies";
 
 export default function Home() {
   return (
-    <main className="h-screen max-w-screen">
-      <div className="text-blue-500 text-4xl flex items-center p-10 justify-center">
+    <main className="h-full max-w-screen">
+      <div>
         <TopRatedMovies />
       </div>
-      <div className="text-blue-500 text-4xl flex items-center p-10 justify-center">
+      <div>
         <UpcomingMovies />
       </div>
       <footer className="absolut bottom-0 w-screen"></footer>
