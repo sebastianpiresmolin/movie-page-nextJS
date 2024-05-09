@@ -6,18 +6,19 @@ import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import axios from 'axios';
 import { useAuth } from '../contexts/authContext';
-import { title } from 'process';
+
 
 export default function NavLinks() {
   const router = useRouter();
-  const [isNavOpen, setIsNavOpen] = useState(false); //state for if the mobile menu is opeo
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const { isLoggedIn } = useAuth();
   const pathname = usePathname();
   const { setLoggedIn } = useAuth();
   const [placeholder, setPlaceholder] = useState('Search for movies...');
   const [searchValue, setSearchValue] = useState({
     title: '',
-  }); //state for the search input value
+  });
+  const [inputValue, setInputValue] = useState(''); // Local state for the input field
 
   // Function to log the user out by sending a GET request to api/users/logout
   // logout will clear the token from the user's cookies
@@ -33,10 +34,33 @@ export default function NavLinks() {
     }
   };
 
+  // api call searching for movie title and returning the id of the movie
+  // if the movie is found, the user is redirected to the movie page
+  // if the movie is not found, the user is redirected to /movies
+  const searchResults = async (title: any) => {
+    try {
+      console.log(title);
+      const response = await axios.get('/api/movies/search', {
+        params: { title },
+      });
+      const id = response.data.id;
+      console.log(id);
+      if (!id) {
+        setPlaceholder('No movies found');
+        return;
+      }
+      router.push(`/movies/${id}`);
+      setInputValue('');
+    } catch (error: any) {
+      console.log('Failed to load movies', error.message);
+    }
+  };
+
+  // Function to handle the search input value
   const handleSetSearchValue = (event: any) => {
     event.preventDefault();
-    console.log(searchValue);
-    setSearchValue({ title: '' });
+    setSearchValue({ title: inputValue });
+    searchResults(inputValue);
   };
 
   // Array of links to be displayed in the navigation
@@ -147,8 +171,8 @@ export default function NavLinks() {
       >
         <input
           type="search"
-          value={searchValue.title}
-          onChange={(e) => setSearchValue({ title: e.target.value })}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
           className="peer cursor-pointer relative z-10 h-8 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4"
           placeholder={placeholder}
         />
