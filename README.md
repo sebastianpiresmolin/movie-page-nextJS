@@ -110,3 +110,13 @@ Example response
         premierDate: '2024-01-20',
         rating: '3'
     }
+
+---
+
+    GET /api/movies/search?title=toy
+
+    Example response
+
+    {
+        id: 1
+    }
