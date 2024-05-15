@@ -14,18 +14,22 @@ now you will see any potential conflicts that will need to be resolved.
 
 ## Getting Started
 
+---
+
+For development
+
 npm install - Install all dependencies
 npm run dev - Run development environment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
+
+For building
+
+npm install - Install all dependencies
+npm run build - Create new build
+npm start - Start
+
+---
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -83,3 +87,36 @@ Example response:
 {
 "isLoggedIn": true
 }
+
+---
+
+GET /api/movies/movie-page?genre=Children
+
+Example response
+
+    {
+        _id: new ObjectId('6628dae6242938919cf11bfa'),
+        id: 10,
+        title: 'Aladdin',
+        genre: 'Children',
+        image: 'https://m.media-amazon.com/images/M/MV5BZTg5ZTVmM2EtZjdhZC00MzBjLWEwZTYtNWIwZDczYzZkMzA4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg',
+        date: '2024-04-29',
+        'ticket-price': 100,
+        reviews: '[\n' +
+        '{id: 1, rating 5, comment: "Bra film, mina barn älskar den"},\n' +
+        '{id: 2, rating 4, comment: "Ok film, lite för lång"},\n' +
+        '{id: 3, rating 1, comment: "Not so good, made my son scared of toys"}\n' +
+        ' ]',
+        premierDate: '2024-01-20',
+        rating: '3'
+    }
+
+---
+
+    GET /api/movies/search?title=toy
+
+    Example response
+
+    {
+        id: 1
+    }
