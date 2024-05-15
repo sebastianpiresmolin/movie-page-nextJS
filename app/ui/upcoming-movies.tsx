@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getUpcomingMovies } from '../lib/data';
 
 interface Movie {
-    id: string;
+    id: number;
     title: string;
     image: string;
 }
