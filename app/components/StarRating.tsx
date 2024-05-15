@@ -2,8 +2,8 @@
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
 interface StarRatingProps {
-  rating: number;
-  maxRating?: number;
+  rating: any;
+  maxRating?: any;
 }
 
 const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating = 5 }) => {
