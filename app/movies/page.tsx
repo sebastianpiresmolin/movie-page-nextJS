@@ -15,7 +15,6 @@ export default function Movies() {
         params: kids,
       });
       setMovies(response.data.movies);
-      console.log(response.data);
     } catch (error: any) {
       console.log('Failed to load movies', error.message);
     }

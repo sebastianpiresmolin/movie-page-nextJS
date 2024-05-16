@@ -14,18 +14,22 @@ now you will see any potential conflicts that will need to be resolved.
 
 ## Getting Started
 
+---
+
+For development
+
 npm install - Install all dependencies
 npm run dev - Run development environment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
+
+For building
+
+npm install - Install all dependencies
+npm run build - Create new build
+npm start - Start
+
+---
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -105,4 +109,14 @@ Example response
         ' ]',
         premierDate: '2024-01-20',
         rating: '3'
+    }
+
+---
+
+    GET /api/movies/search?title=toy
+
+    Example response
+
+    {
+        id: 1
     }

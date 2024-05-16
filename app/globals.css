@@ -17,7 +17,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--background-end-rgb));
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
@@ -35,4 +35,13 @@ body {
 
 .hideMenuNav {
   display: none;
+}
+
+.custom-margin {
+  margin-left: 350px; 
+  margin-right: 350px;
+}
+
+.custom-text {
+  font-size: 30px;
 }

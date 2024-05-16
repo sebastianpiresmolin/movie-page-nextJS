@@ -82,3 +82,4 @@ const movieSchema = new Schema<MovieDocument>({
 const Movie = mongoose.models.Movie || mongoose.model<MovieDocument>('Movie', movieSchema);
 
 export default Movie;
+
