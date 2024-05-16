@@ -40,8 +40,8 @@ export default function FooterLinks() {
     ...(isLoggedIn
       ? [
           {
-            name: 'Userpage',
-            href: '/userpage',
+            name: 'Profile',
+            href: '/profile',
           },
           {
             name: 'Sign Out',
