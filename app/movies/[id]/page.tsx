@@ -5,7 +5,8 @@ import Movie, { MovieDocument } from '../../lib/schemas';
 import { connect } from '../../lib/DbConnect';
 import StarRating from '../../components/StarRating';
 import { FaStar, FaRegStar } from 'react-icons/fa';
-
+import MovieDetails from '../../components/MovieDetails'
+ 
 interface MoviePageProps {
   params: {
     id: string;
@@ -36,7 +37,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
         <span className="text-red-900 font-bold ml-4 text-lg 2xl:text-xl animate-bounce">Watch it now in Tidaholm Bio</span>
       </div>
       <p className="text-lg 2xl:text-xl"><strong>Genre:</strong> {movie.genre}</p>
-      <p className="text-lg 2xl:text-xl"><strong>Release Date:</strong> {new Date(movie.date).toLocaleDateString()}</p>
+      <p className="text-lg 2xl:text-xl"><strong>Release Date:</strong> {new Date(movie.sdate).toLocaleDateString()}</p>
       <p className="text-lg 2xl:text-xl"><strong>Ticket Price:</strong> {movie.ticketPrice} SEK</p>
       <p className="text-lg 2xl:text-xl"><strong>Premier Date:</strong> {new Date(movie.premierDate).toLocaleDateString()}</p>
       <div className="text-lg 2xl:text-xl"><strong>Rating:</strong> <StarRating rating={movie.rating} /></div>
@@ -76,6 +77,8 @@ export default async function MoviePage({ params }: MoviePageProps) {
         <button type="submit" className="mt-2 bg-red-900 text-white px-4 py-2 rounded hover:bg-yellow-900">Submit</button>
       </form>
     </div>
+    <MovieDetails movie={movie} />
+
   </main>
     
   );
