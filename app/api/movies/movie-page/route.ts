@@ -11,7 +11,6 @@ export async function GET(request: NextRequest) {
     const mongoQuery = genre ? { genre } : {};
 
     const movies = await Movie.find(mongoQuery).sort({ rating: -1 });
-    console.log(movies);
     return NextResponse.json({ movies });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
