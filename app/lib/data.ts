@@ -14,7 +14,7 @@ if (mongoose.models.Movie) {
   Movie = mongoose.model("Movie", MovieSchema);
 }*/
 
-const Movie: Model <InferSchemaType <typeof MovieSchema>> = mongoose.models.Movie || mongoose.model("Movie", MovieSchema);
+export const Movie: Model <InferSchemaType <typeof MovieSchema>> = mongoose.models.Movie || mongoose.model("Movie", MovieSchema);
 
 if (mongoose.models.User) {
   User = mongoose.model("User");
