@@ -15,9 +15,11 @@ export async function GET(request: NextRequest) {
 
     const movies = await Movie.findOne(mongoQuery);
     console.log(movies);
-    return NextResponse.json({ id: movies.id });
+    if (movies) {
+      return NextResponse.json({ id: movies.id });
+    } else {
+      return NextResponse.json({ id: ' ' });
+    }
   } catch (error: any) {
-    // if the movie is not found, the user is redirected to /movies
-    return NextResponse.json({ id: ' ' });
   }
 }
