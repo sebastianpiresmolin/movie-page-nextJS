@@ -1,18 +1,20 @@
 import { connect } from "./DbConnect";
-import mongoose from "mongoose";
+import mongoose, { InferSchemaType, Model } from "mongoose";
 import { UserSchema, MovieSchema } from "./schemas";
 
 
 connect();
 
 export let User: any;
-export let Movie: any;
+/*export let Movie: any;
 
 if (mongoose.models.Movie) {
   Movie = mongoose.model("Movie");
 } else {
   Movie = mongoose.model("Movie", MovieSchema);
-}
+}*/
+
+const Movie: Model <InferSchemaType <typeof MovieSchema>> = mongoose.models.Movie || mongoose.model("Movie", MovieSchema);
 
 if (mongoose.models.User) {
   User = mongoose.model("User");
