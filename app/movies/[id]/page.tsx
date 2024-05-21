@@ -37,7 +37,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
         <span className="text-red-900 font-bold ml-4 text-lg 2xl:text-xl animate-bounce">Watch it now in Tidaholm Bio</span>
       </div>
       <p className="text-lg 2xl:text-xl"><strong>Genre:</strong> {movie.genre}</p>
-      <p className="text-lg 2xl:text-xl"><strong>Release Date:</strong> {new Date(movie.sdate).toLocaleDateString()}</p>
+      <p className="text-lg 2xl:text-xl"><strong>Release Date:</strong> {new Date(movie.StartDate).toLocaleDateString()}</p>
       <p className="text-lg 2xl:text-xl"><strong>Ticket Price:</strong> {movie.ticketPrice} SEK</p>
       <p className="text-lg 2xl:text-xl"><strong>Premier Date:</strong> {new Date(movie.premierDate).toLocaleDateString()}</p>
       <div className="text-lg 2xl:text-xl"><strong>Rating:</strong> <StarRating rating={movie.rating} /></div>

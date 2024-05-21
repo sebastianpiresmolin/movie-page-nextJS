@@ -96,8 +96,8 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
     <div className="h-full w-full max-w-screen flex-grow min-h-screen p-8">
       {selectedMovie && (
         <div className="mt-8">
-          <h2 className="text-2xl font-bold">{selectedMovie.title}</h2>
-          <p className="mt-2">
+          <h2 className="text-2xl font-bold text-red-900  flex justify-center mt-4" >{selectedMovie.title}</h2>
+          <p className="mt-2 text-red-900 flex justify-center ">
             Available Seats: {selectedMovie.seats - selectedMovie.bookedSeats.length}
           </p>
           <div className="flex justify-center mt-4">
