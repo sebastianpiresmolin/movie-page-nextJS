@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 connect();
 
-export async function GET(request: NextRequest) {
+async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     let genre = searchParams.get('genre');

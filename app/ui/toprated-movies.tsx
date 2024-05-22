@@ -2,14 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { getTopRatedMovies } from '../lib/data';
 
-interface Movie {
-  id: number;
-  title: string;
-  image: string;
-}
-
-type MovieList = Movie[];
-
 export async function TopRatedMovies() {
   const moviesFromDb = await getTopRatedMovies();
   const movies = moviesFromDb.map((movie) => movie.toJSON());
