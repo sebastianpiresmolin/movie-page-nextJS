@@ -62,7 +62,7 @@ export interface MovieDocument extends Document {
   title: string;
   genre: string;
   image: string;
-  sdate: Date;
+  StartDate: Date;
   ticketPrice: number;
   reviews: Array<object>;
   premierDate: Date;
@@ -83,7 +83,7 @@ const movieSchema = new Schema<MovieDocument>({
   id: { type: Number, required: true },
   title: { type: String},
   genre: { type: String  },
-  sdate: { type: Date },
+  StartDate: { type: Date },
   ticketPrice: { type: Number},
   reviews: { type: [Object] },
   premierDate: { type: Date },
@@ -93,7 +93,8 @@ const movieSchema = new Schema<MovieDocument>({
   seats: { type: Number }, 
   salon: { type: Number },
   time: { type: String, required: true },
-  date: { type: [String], required: true }
+  date: { type: [String], required: true },
+  image:{ type: String, required: true },
 
      
 });

@@ -11,7 +11,7 @@ export default function Home() {
       <div>
         <UpcomingMovies />
       </div>
-      <footer className="absolut bottom-0 w-screen"></footer>
+      <footer className="absolute bottom-0 w-screen"></footer>
     </main>
   );
 }
