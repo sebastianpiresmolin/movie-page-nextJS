@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 connect();
 
-async function GET(request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     let title = searchParams.get('title');
@@ -21,5 +21,6 @@ async function GET(request: NextRequest) {
       return NextResponse.json({ id: ' ' });
     }
   } catch (error: any) {
+    return NextResponse.error();
   }
 }
