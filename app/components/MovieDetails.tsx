@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MovieDocument } from '../lib/schemas';
+
 
 interface MovieDetailsProps {
   movie: MovieDocument;
@@ -15,10 +15,17 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
   const [selectedSalon, setSelectedSalon] = useState<number>(1);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
-  
+  const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<string | null>(null);
+
   const handleSalonSelect = (salonNumber: number) => {
     setSelectedSalon(salonNumber);
   };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
   const generateDates = () => {
     const dates = [];
     const today = new Date();
@@ -31,7 +38,6 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
   };
   const dates = generateDates();
   const timePeriods = ["10:00 AM", "2:00 PM", "6:00 PM"];
-  
   
   const handleSeatSelect = (seatNumber: number) => {
     if (selectedSeats.includes(seatNumber)) {
@@ -46,33 +52,28 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
   };
 
   const bookSeats = async () => {
-    if (!selectedMovie || !selectedDate || !selectedTime) return;
-  
+    if (!selectedMovie || !selectedDate || !selectedTime || !email) {
+      setError('Please fill in all required fields');
+
+      return;
+    }
     try {
       const response = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          id: selectedMovie.id,
+          movieId: movie._id,
           salon: selectedSalon,
           date: selectedDate,
           time: selectedTime,
-          bookedSeats: selectedSeats,
+          seatNumbers: selectedSeats,
+          email: email,
+        
         }),
       });
-  
+      
+      
       if (response.ok) {
-        const updatedMovie = {
-          ...selectedMovie,
-          bookedSeats: [
-            ...(Array.isArray(selectedMovie.bookedSeats)
-              ? selectedMovie.bookedSeats
-              : []),
-            ...selectedSeats,
-          ],
-        };
-  
-        setSelectedMovie(updatedMovie as MovieDocument);
         router.push("/payment");
       } else {
         console.error("Failed to book seats");
@@ -81,8 +82,6 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
       console.error("Error booking seats:", error);
     }
   };
-  
-  
   
   const rows = [
     [1, 2, 3, 4, 5, 6, 7, 8], 
@@ -94,6 +93,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
 
   return (
     <div className="h-full w-full max-w-screen flex-grow min-h-screen p-8">
+    
       {selectedMovie && (
         <div className="mt-8">
           <h2 className="text-2xl font-bold text-red-900  flex justify-center mt-4" >{selectedMovie.title}</h2>
@@ -182,13 +182,29 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
           </div>
         )}
 
-
+<div className="mt-4 bg-white-900 text-red-900" >
+        <label htmlFor="email" className="mr- font-semibold">Email:</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={handleEmailChange}
+          className="px-2 py-1 border border-gray-300 rounded-md"
+          placeholder="Enter your email"
+        />
+      </div>
           <button
             onClick={bookSeats}
             className="mt-4 px-4 py-2 bg-red-900 text-white rounded-md shadow-md hover:bg-red-800"
           >
             Book Seats
           </button>
+          
+        </div>
+      )}
+      {error && (
+        <div className="bg-red-900 text-white p-3 m-7 rounded-md">
+          {error}
         </div>
       )}
     </div>

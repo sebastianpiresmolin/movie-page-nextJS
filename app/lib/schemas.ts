@@ -50,12 +50,7 @@ export const MovieSchema = new Schema({
   },
 });
 
-
-
-import mongoose, { Document} from 'mongoose';
-
-
-
+import mongoose, { Document } from "mongoose";
 
 export interface MovieDocument extends Document {
   id: number;
@@ -67,38 +62,33 @@ export interface MovieDocument extends Document {
   reviews: Array<object>;
   premierDate: Date;
   rating: string;
-  story:string;
+  story: string;
   bookedSeats: number[];
-  seats:number;
+  seats: number;
   salon: number;
   time: string;
   date: string[];
-
-
 }
-
-
 
 const movieSchema = new Schema<MovieDocument>({
   id: { type: Number, required: true },
-  title: { type: String},
-  genre: { type: String  },
+  title: { type: String },
+  genre: { type: String },
   StartDate: { type: Date },
-  ticketPrice: { type: Number},
+  ticketPrice: { type: Number },
   reviews: { type: [Object] },
   premierDate: { type: Date },
-  rating: { type: String  },
-  story: { type: String,},
-  bookedSeats: { type: [Number], default: [] }, 
-  seats: { type: Number }, 
+  rating: { type: String },
+  story: { type: String },
+  bookedSeats: { type: [Number], default: [] },
+  seats: { type: Number },
   salon: { type: Number },
-  time: { type: String, required: true },
+  time: { type: String },
   date: { type: [String], required: true },
-  image:{ type: String, required: true },
-
-     
+  image: { type: String },
 });
 
-const Movie = mongoose.models.Movie || mongoose.model<MovieDocument>('Movie', movieSchema);
+const Movie =
+  mongoose.models.Movie || mongoose.model<MovieDocument>("Movie", movieSchema);
 
 export default Movie;
